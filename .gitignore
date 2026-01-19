@@ -1,0 +1,11 @@
+# Variables de entorno sensibles
+.env
+.env.local
+.env.*.local
+
+# Datos de n8n
+n8n_data/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
