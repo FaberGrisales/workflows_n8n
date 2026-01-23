@@ -27,7 +27,7 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.5,
       "position": [
-        -32,
+        192,
         -192
       ],
       "id": "e20c68bd-8854-47bf-be64-6133ff419f1e",
@@ -49,8 +49,8 @@
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        864,
-        -256
+        800,
+        -368
       ],
       "id": "d4eec563-9f16-45dc-b67b-efe99b76317e",
       "name": "Run an Actor",
@@ -75,8 +75,8 @@
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        1072,
-        -256
+        1008,
+        -368
       ],
       "id": "1ba2ea34-7673-4631-9ff2-284753e8d406",
       "name": "Get last run",
@@ -95,8 +95,8 @@
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        1280,
-        -256
+        1216,
+        -368
       ],
       "id": "851630b2-eae1-4aca-91cc-2dffcc1ff97e",
       "name": "Get dataset items",
@@ -106,32 +106,6 @@
           "name": "Apify account"
         }
       }
-    },
-    {
-      "parameters": {
-        "jsCode": "const instagram_account = $input.first().json['Instagram Account'];\nconst tiktok_account = $input.first().json['Tik Tok'];\nconst facebook_account = $input.first().json['Facebook'];\n\nconst social_networks = [];\n\nif (instagram_account.trim()){\n  social_networks.push({\n    platform: 'Instagram',\n    account: instagram_account.trim()\n  })\n}\n\nif (tiktok_account.trim()){\n  social_networks.push({\n    platform: 'Tik Tok',\n    account: tiktok_account.trim()\n  })\n}\n\nif (facebook_account.trim()){\n  social_networks.push({\n    platform: 'Facebook',\n    account: facebook_account.trim()\n  })\n}\n\nreturn social_networks.map(item =>({json: item}));"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        176,
-        -192
-      ],
-      "id": "7f0c8a4b-f9b2-47f8-8d83-8b6ce35edcd2",
-      "name": "Code in JavaScript"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        368,
-        -192
-      ],
-      "id": "ce71d119-d582-449b-9f37-e28faffe903d",
-      "name": "Loop Over Items"
     },
     {
       "parameters": {
@@ -212,8 +186,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        576,
-        -96
+        528,
+        -208
       ],
       "id": "c5791a69-c198-49ef-9831-b002ed7f9ba3",
       "name": "Switch"
@@ -227,14 +201,13 @@
           "cachedResultName": "Instagram Scraper (apify/instagram-scraper)",
           "cachedResultUrl": "https://console.apify.com/actors/shu8hvrXbJbY3Eb9W/input"
         },
-        "customBody": "={\n    \"addParentData\": false,\n    \"directUrls\": [\n        \"https://www.instagram.com/{{ $json['Instagram Account'] }}/\"\n    ],\n    \"resultsLimit\": 200,\n    \"resultsType\": \"posts\",\n    \"searchLimit\": 1,\n    \"searchType\": \"hashtag\"\n}",
-        "timeout": {}
+        "customBody": "={\n    \"addParentData\": false,\n    \"directUrls\": [\n        \"https://www.instagram.com/{{ $json['Instagram Account'] }}/\"\n    ],\n    \"resultsLimit\": 200,\n    \"resultsType\": \"posts\",\n    \"searchLimit\": 1,\n    \"searchType\": \"hashtag\"\n}"
       },
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        864,
-        -80
+        800,
+        -192
       ],
       "id": "f77bf211-2a9e-4eb3-a4ce-3d0ca667f53a",
       "name": "Run an Actor3",
@@ -259,8 +232,8 @@
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        1072,
-        -80
+        1008,
+        -192
       ],
       "id": "be3de2bf-3f7c-4836-99c6-460d6dfd6d22",
       "name": "Get last run3",
@@ -280,8 +253,8 @@
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        1280,
-        -80
+        1216,
+        -192
       ],
       "id": "b6f79540-7cfd-40dd-9f4a-316ade09dfda",
       "name": "Get dataset items3",
@@ -307,8 +280,8 @@
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        864,
-        96
+        800,
+        -16
       ],
       "id": "6bd5120e-dfe9-4b22-b541-8aaee59040e6",
       "name": "Run an Actor4",
@@ -333,8 +306,8 @@
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        1072,
-        96
+        1008,
+        -16
       ],
       "id": "0d894712-f059-42ea-83b6-6fa9404c1084",
       "name": "Get last run4",
@@ -354,8 +327,8 @@
       "type": "@apify/n8n-nodes-apify.apify",
       "typeVersion": 1,
       "position": [
-        1280,
-        96
+        1216,
+        -16
       ],
       "id": "68fc9704-cdaf-4db2-8875-35a363f38bc4",
       "name": "Get dataset items4",
@@ -367,15 +340,30 @@
       }
     },
     {
-      "parameters": {},
+      "parameters": {
+        "jsCode": "const social_data = [];\n\n\n\nreturn social_data;"
+      },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1760,
-        96
+        1632,
+        -192
       ],
       "id": "b95184e2-8e56-498b-88ac-d427fcd42d81",
       "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const instagram_account = $input.first().json['Instagram Account'];\nconst tiktok_account = $input.first().json['Tik Tok'];\nconst facebook_account = $input.first().json['Facebook'];\n\nconst social_networks = [];\n\nif (instagram_account.trim()){\n  social_networks.push({\n    platform: 'Instagram',\n    account: instagram_account.trim()\n  })\n}\n\nif (tiktok_account.trim()){\n  social_networks.push({\n    platform: 'Tik Tok',\n    account: tiktok_account.trim()\n  })\n}\n\nif (facebook_account.trim()){\n  social_networks.push({\n    platform: 'Facebook',\n    account: facebook_account.trim()\n  })\n}\n\nreturn social_networks.map(item =>({json: item}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        368,
+        -192
+      ],
+      "id": "7f0c8a4b-f9b2-47f8-8d83-8b6ce35edcd2",
+      "name": "Code in JavaScript"
     }
   ],
   "pinData": {
@@ -3929,29 +3917,6 @@
         ]
       ]
     },
-    "Code in JavaScript": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Loop Over Items": {
-      "main": [
-        [],
-        [
-          {
-            "node": "Switch",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Switch": {
       "main": [
         [
@@ -4023,13 +3988,7 @@
     },
     "Code in JavaScript1": {
       "main": [
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Get dataset items3": {
@@ -4053,6 +4012,17 @@
           }
         ]
       ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -4060,7 +4030,7 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "2b5a1cd6-c224-4fc7-94d3-7c1e3ce4c8bb",
+  "versionId": "404dbab1-bbc6-423f-9071-90c917706c65",
   "meta": {
     "instanceId": "fa1fc0c1ab8eb244ae526fb0fffb43dc73a06024ea8e5fe1610e0d6f65fbeef4"
   },
