@@ -5,6 +5,7 @@ services:
     restart: always
     ports:
       - "${N8N_PORT}:5678"
+      - "5679:5679"
     environment:
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER}
@@ -31,8 +32,26 @@ services:
       - N8N_RUNNERS_AUTH_TOKEN=${N8N_RUNNERS_AUTH_TOKEN}
       - N8N_RUNNERS_BROKER_HOST=n8n
       - N8N_RUNNERS_BROKER_PORT=5679
+      - N8N_RUNNER_TYPE=python
+    depends_on:
+      - n8n
+
+  n8n-javascript-runner:
+    image: n8nio/runners:2.3.6
+    container_name: n8n-javascript-runner
+    restart: always
+    environment:
+      - N8N_RUNNERS_ENABLED=true
+      - N8N_RUNNERS_AUTH_TOKEN=${N8N_RUNNERS_AUTH_TOKEN}
+      - N8N_RUNNERS_BROKER_HOST=n8n
+      - N8N_RUNNERS_BROKER_PORT=5679
+      - N8N_RUNNER_TYPE=javascript
     depends_on:
       - n8n
 
 volumes:
   n8n_data:
+
+networks:
+  n8n-network:
+    driver: bridge
